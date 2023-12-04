@@ -7,8 +7,8 @@ import ffmpeg from 'fluent-ffmpeg';
 
 const storage = new Storage();
 
-const rawVideoBucketName = "matthew-yt-raw-videos";
-const processedVideoBucketName = "matthew-yt-processed-videos";
+const rawVideoBucketName = "matthew08069-yt-raw-videos";
+const processedVideoBucketName = "matthew08069-yt-processed-videos";
 
 const localRawVideoPath = "./raw-videos";
 const localProcessedVideoPath = "./processed-videos";
@@ -29,7 +29,7 @@ export function setupDirectories() {
 export function convertVideo(rawVideoName: string, processedVideoName: string) {
     return new Promise<void>((resolve, reject) => {
     ffmpeg(`${localRawVideoPath}/${rawVideoName}`)
-    .outputOptions("-vf", "scale=1:360") //Resize the video to 360p
+    .outputOptions("-vf", "scale=1:360, pad=ceil(iw/2)*2:ceil(ih/2)*2") //Resize the video to 360p
     .on('end', () => {
         console.log("Video processing completed.");
         resolve();
