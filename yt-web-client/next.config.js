@@ -2,3 +2,7 @@
 const nextConfig = {}
 
 module.exports = nextConfig
+
+process.on('unhandledRejection', error => {
+	console.log('unhandledRejection', error);
+});
