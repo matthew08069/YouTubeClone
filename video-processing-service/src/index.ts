@@ -1,5 +1,6 @@
 import express from "express";
 import { convertVideo, deleteProcessedVideo, deleteRawVideo, downloadRawVideo, setupDirectories, uploadProcessedVideo } from "./storage";
+import { isVideoNew, setVideo } from "./firestore";
 
 setupDirectories();
 
@@ -14,6 +15,7 @@ app.post('/process-video', async(req, res) => {
 
   const inputFileName = data.name;
   const outputFileName = `processed-${inputFileName}`;
+  const videoId = inputFileName.split('.')[0];
 
   try{
     if(!data.name){
@@ -22,6 +24,16 @@ app.post('/process-video', async(req, res) => {
   } catch (err) {
     console.error(err);
     return res.status(400).send("Bad request: missing filename");
+  }
+
+  if(!isVideoNew(inputFileName)){
+    return res.status(400).send("Bad request: Video has already been processed");
+  }else {
+    await setVideo(videoId, {
+      id: videoId,
+      uid: videoId.split('-')[0],
+      status: 'processing'
+    });
   }
 
   // Download raw video from GCS
@@ -41,6 +53,12 @@ app.post('/process-video', async(req, res) => {
 
   // Upload processed video to GCS
   await uploadProcessedVideo(outputFileName);
+
+  await setVideo(videoId, {
+    status: 'processed',
+    filename: outputFileName
+  });
+
   await Promise.all([    
     deleteRawVideo(inputFileName),
     deleteProcessedVideo(outputFileName)
@@ -51,5 +69,5 @@ app.post('/process-video', async(req, res) => {
 
 const port = process.env.PORT ?? 3000;
 app.listen(port, () => {
-  console.log(`Video processing service listening at http://localhost:${port}`);
+console.log(`Video processing service listening at http://localhost:${port}`);
 });
