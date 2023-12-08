@@ -7,7 +7,7 @@ docker build -t us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-we
 docker push us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client
 
 -- Deploy container to cloud run
-gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/PROJECT_ID/yt-web-client-repo/yt-web-client \
+gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client \
   --region=us-central1 \
   --platform managed \
   --timeout=3600 \
@@ -15,5 +15,5 @@ gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/PROJECT_ID/yt
   --cpu=1 \
   --min-instances=0 \
   --max-instances=1 \
-  --project=<projectID>
+  --project=projectID
   
