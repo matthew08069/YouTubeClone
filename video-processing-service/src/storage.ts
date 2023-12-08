@@ -29,7 +29,7 @@ export function setupDirectories() {
 export function convertVideo(rawVideoName: string, processedVideoName: string) {
     return new Promise<void>((resolve, reject) => {
     ffmpeg(`${localRawVideoPath}/${rawVideoName}`)
-    .outputOptions("-vf", "scale=1:360, pad=ceil(iw/2)*2:ceil(ih/2)*2") //Resize the video to 360p
+    .outputOptions("-vf", "scale=-1:360") //Resize the video to 360p
     .on('end', () => {
         console.log("Video processing completed.");
         resolve();
