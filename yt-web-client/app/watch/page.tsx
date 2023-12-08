@@ -1,6 +1,8 @@
 'use client';
 
 import { useSearchParams } from "next/navigation";
+import React from 'react'
+import ReactPlayer from 'react-player'
 
 export default function Watch() {
     const videoSrc = useSearchParams().get('v');
@@ -9,7 +11,7 @@ export default function Watch() {
     return(    
     <div>
         <h1>Watch Page</h1>
-        <video src={videoPrefix + videoSrc} controls />
+        <ReactPlayer url={videoPrefix + videoSrc} controls />
     </div>
     );
 }
