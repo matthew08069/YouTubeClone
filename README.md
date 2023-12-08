@@ -1,5 +1,5 @@
 # YouTubeClone = https://yt-web-client-eeshjkauiq-uc.a.run.app
-
+<--
 docker build -t us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client .
 -- for Mac add --platform linux/amd64
 
@@ -15,3 +15,4 @@ gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/PROJECT_ID/yt
   --min-instances=0 \
   --max-instances=1 \
   --project=<projectID>
+  -->
