@@ -1,20 +1,8 @@
-# YouTubeClone = https://yt-web-client-eeshjkauiq-uc.a.run.app
+# YouTubeClone
+https://yt-web-client-eeshjkauiq-uc.a.run.app
 
-
-docker build -t us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client .
-
--- for Mac add --platform linux/amd64
-
-docker push us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client
-
--- Deploy container to cloud run
-gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/<PROJECT_ID>/yt-web-client-repo/yt-web-client \
-  --region=us-central1 \
-  --platform managed \
-  --timeout=3600 \
-  --memory=2Gi \
-  --cpu=1 \
-  --min-instances=0 \
-  --max-instances=1 \
-  --project=projectID
-  
+# How to navigate the website
+You can click on any video a watch it online without signing in an account (Google)
+To upload a video, you will need to sign in with a google account first, then click the video icon at the center-top position.
+A pop-up window will tell if the video is successfully uploaded, then wait a few minute and refreash the page, your newly uploaded video will show up.
+NOTEICE: There are no thumbnails available at the moment.
