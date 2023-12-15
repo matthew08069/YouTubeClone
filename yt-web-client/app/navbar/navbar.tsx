@@ -22,7 +22,7 @@ export default function Navbar() {
     
         // Cleanup subscription on unmount
         return () => unsubscribe();
-      }, [] /* No dependencies, never rerun */);
+      }, [] /* No dependencies, never re-run */);
 
     return(    
         <nav className={styles.nav}>

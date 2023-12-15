@@ -25,10 +25,10 @@ export default function Upload() {
 
     return (
       <Fragment>
-      <input id="upload" className={styles.uploadInput} type="file" accept="video/*" onChange={handleFileChange} />
-      <label htmlFor="upload" className={styles.uploadButton}>
-        <Image width={90} height={20} src="/upload-logo.svg" alt="Upload Logo"></Image>
-      </label>
-    </Fragment>
+        <input id="upload" className={styles.uploadInput} type="file" accept="video/*" onChange={handleFileChange} />
+        <label htmlFor="upload" className={styles.uploadButton}>
+          <Image width={90} height={20} src="/upload-logo.svg" alt="Upload Logo"></Image>
+        </label>
+      </Fragment>
     )
 };
