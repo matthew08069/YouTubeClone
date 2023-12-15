@@ -25,7 +25,7 @@ export async function uploadVideo(file: File){
             "Content-Type": file.type
         },
     });
-    return;
+    return 'processing';
 };
 
 export async function getVideos(){
