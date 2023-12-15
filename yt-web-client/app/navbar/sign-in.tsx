@@ -6,7 +6,7 @@ import { signInWithGoogle, signOut } from "../utils/firebase/firebase";
 import { User } from "firebase/auth";
 import Image from 'next/image'
 
-const defaultAvatar = "/Users/matthewchan/Documents/GitHub/YouTubeClone/yt-web-client/public/thumbnail.png";
+const defaultAvatar = "../../public/thumbnail.png";
 
 interface SignInProps {
     user: User | null;
