@@ -26,6 +26,7 @@ echo "gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/yt-clon
   --max-instances=1"
 gcloud run deploy yt-web-client --image us-central1-docker.pkg.dev/yt-clone-407015/yt-web-client-repo/yt-web-client \
   --region=us-central1 \
+  --project=yt-clone-407015 \
   --platform managed \
   --timeout=3600 \
   --memory=2Gi \
