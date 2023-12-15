@@ -26,34 +26,34 @@ export function SignIn({ user }: SignInProps) {
                 (   
                     <div>
                         {/*TODO: style the button so it looks more like the one on YouTube */}
-                        <Image  onClick={() => setdropDown(!dropDown)} className={styles.signin} 
-                                    src={user.photoURL || defaultAvatar} 
-                                    width={50} height={50} alt="avatar"/>
-                        {/* <button className={styles.signin} onClick={signOut}>
-                            Sign Out
-                        </button>
-                        {/* <button className={styles.signin} onClick={() => setdropDown(!dropDown)}>
-                            Click Me
-                        </button> */}
                         { dropDown ?
                             ( 
-                                <div className={styles.dropdown}>
-                                    <ul>
-                                        <li>
-                                            {user.displayName}
-                                        </li>
-                                        <li>
-                                            {user.email}
-                                        </li>
-                                        <li>
-                                            <button className={styles.dropdownContent} onClick={signOutWithDropDown}>
-                                                Sign Out
-                                            </button>
-                                        </li>
-                                    </ul>
+                                <div>
+                                    <Image  onClick={() => setdropDown(!dropDown)} className={styles.avatar} 
+                                        src={user.photoURL || defaultAvatar} 
+                                        width={50} height={50} alt="avatar"/>
+                                    <div className={styles.dropDownMenu}>
+                                        <ul className={styles.dropDownItem_container}>
+                                            <li className={styles.dropDownItem}>
+                                                {user.displayName}
+                                            </li>
+                                            <li className={styles.dropDownItem}>
+                                                {user.email}
+                                            </li>
+                                            <li className={styles.dropDownSignout}>
+                                                <button className={styles.signout} onClick={signOutWithDropDown}>
+                                                    Sign Out
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             ) : (
-                                <p></p>  
+                                <div>
+                                    <Image  onClick={() => setdropDown(!dropDown)} className={styles.avatar} 
+                                        src={user.photoURL || defaultAvatar} 
+                                        width={50} height={50} alt="avatar"/>
+                                </div>
                             )
                         }
                     </div>
