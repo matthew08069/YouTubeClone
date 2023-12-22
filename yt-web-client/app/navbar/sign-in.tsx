@@ -30,7 +30,7 @@ export function SignIn({ user }: SignInProps) {
                             ( 
                                 <div>
                                     <Image  onClick={() => setdropDown(!dropDown)} className={styles.avatar} 
-                                        src={user.photoURL || defaultAvatar} 
+                                        src={user.photoURL || defaultAvatar}
                                         width={50} height={50} alt="avatar"/>
                                     <div className={styles.dropDownMenu}>
                                         <ul className={styles.dropDownItem_container}>
